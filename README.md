@@ -54,3 +54,47 @@ SELECT name
 FROM companies
 WHERE name LIKE 'DataC_mp';
 You can also use the NOT LIKE operator to find records that don't match the pattern you specify.
+
+Aggregate functions
+Often, you will want to perform some calculation on the data in a database. SQL provides a few functions, called aggregate functions, to help you out with this.
+
+For example,
+
+SELECT AVG(budget)
+FROM films;
+gives you the average value from the budget column of the films table. Similarly, the MAX function returns the highest budget:
+
+SELECT MAX(budget)
+FROM films;
+The SUM function returns the result of adding up the numeric values in a column:
+
+SELECT SUM(budget)
+FROM films;
+You can probably guess what the MIN function does! Now it's your turn to try out some SQL functions.
+
+Aggregate functions can be combined with the WHERE clause to gain further insights from your data.
+
+For example, to get the total budget of movies made in the year 2010 or later:
+
+SELECT SUM(budget)
+FROM films
+WHERE release_year >= 2010;
+It's AS simple AS aliasing
+You may have noticed in the first exercise of this chapter that the column name of your result was just the name of the function you used. For example,
+
+SELECT MAX(budget)
+FROM films;
+gives you a result with one column, named max. But what if you use two functions like this?
+
+SELECT MAX(budget), MAX(duration)
+FROM films;
+Well, then you'd have two columns named max, which isn't very useful!
+
+To avoid situations like this, SQL allows you to do something called aliasing. Aliasing simply means you assign a temporary name to something. To alias, you use the AS keyword, which you've already seen earlier in this course.
+
+For example, in the above example we could use aliases to make the result clearer:
+
+SELECT MAX(budget) AS max_budget,
+       MAX(duration) AS max_duration
+FROM films;
+Aliases are helpful for making results more readable!
