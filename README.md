@@ -114,3 +114,11 @@ SELECT MAX(budget) AS max_budget,
        MAX(duration) AS max_duration
 FROM films;
 Aliases are helpful for making results more readable!
+
+orting single columns (DESC)
+To order results in descending order, you can put the keyword DESC after your ORDER BY. For example, to get all the names in the people table, in reverse alphabetical order:
+
+SELECT name
+FROM people
+ORDER BY name DESC;
+Now practice using ORDER BY with DESC to sort single columns in descending order!
